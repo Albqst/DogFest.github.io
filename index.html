@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f5eb">
+  <meta name="description" content="Фестиваль владельцев собак в Майкопе. Знакомства, игры, конкурсы и полезные знания для людей и их четвероногих друзей.">
+  <title>Фестиваль владельцев собак — Майкоп</title>
+  <style>
+    :root {
+      --cream:#fbf8ef; --paper:#fffdf7; --green:#244735; --sage:#e9eddd;
+      --olive:#668253; --orange:#d97935; --yellow:#f8c94f; --ink:#18352c;
+      --muted:#58675d; --line:#e4dfd1; --shadow:0 14px 40px rgba(35,55,37,.08);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; line-height:1.6; }
+    a { color:inherit; }
+    .wrap { width:min(1120px, calc(100% - 36px)); margin-inline:auto; }
+    header { position:sticky; top:0; z-index:5; background:rgba(251,248,239,.95); backdrop-filter:blur(12px); border-bottom:1px solid rgba(36,71,53,.08); }
+    .nav { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; font-size:17px; line-height:1.15; text-decoration:none; }
+    .paw { display:grid; place-items:center; width:44px; height:44px; border-radius:50%; background:var(--sage); font-size:26px; }
+    .links { display:flex; gap:26px; align-items:center; font-size:14px; }
+    .links a { text-decoration:none; }
+    .links a:hover { color:var(--orange); }
+    .hero { position:relative; min-height:470px; display:flex; align-items:center; overflow:hidden; color:white; background:linear-gradient(90deg,rgba(14,37,23,.78),rgba(14,37,23,.36) 52%,rgba(14,37,23,.05)), url('assets/festival-dogs-hero.png') center 43%/cover no-repeat; }
+    .hero-inner { padding:68px 0 62px; position:relative; z-index:1; max-width:650px; }
+    .location { display:inline-flex; align-items:center; gap:8px; font-weight:700; margin-bottom:14px; }
+    h1 { font-size:clamp(42px,6.6vw,72px); letter-spacing:-2px; line-height:1.02; margin:0 0 18px; max-width:690px; }
+    .hero h1 span { color:#ffd36b; }
+    .lead { font-size:clamp(18px,2vw,22px); font-weight:650; max-width:570px; margin:0 0 12px; }
+    .sublead { max-width:520px; margin:0 0 26px; color:#fff8e8; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; border:0; border-radius:999px; padding:14px 24px; background:var(--yellow); color:#1c3023; font-weight:800; text-decoration:none; box-shadow:0 6px 18px rgba(0,0,0,.12); transition:transform .15s ease; }
+    .btn:hover { transform:translateY(-2px); }
+    .note { font-size:13px; margin-top:12px; color:#fff7e6; }
+    .facts { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; padding:28px 0; }
+    .fact { text-align:center; padding:18px 12px; }
+    .fact-icon { width:58px; height:58px; border-radius:50%; margin:0 auto 10px; display:grid; place-items:center; background:var(--sage); font-size:27px; }
+    .fact h3 { margin:0 0 4px; font-size:18px; }
+    .fact p { margin:0; color:var(--muted); font-size:14px; }
+    .section { padding:24px 0 42px; }
+    .panel { border-radius:24px; background:var(--sage); padding:clamp(24px,4vw,44px); }
+    h2 { font-size:clamp(30px,4vw,42px); letter-spacing:-1px; line-height:1.12; margin:0 0 12px; }
+    .section-intro { margin:0 0 28px; color:var(--muted); max-width:720px; }
+    .features { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+    .feature { padding:12px 8px; text-align:center; }
+    .feature .emoji { font-size:42px; line-height:1.3; }
+    .feature h3 { font-size:17px; margin:10px 0 7px; }
+    .feature p { color:var(--muted); margin:0; font-size:14px; }
+    .register-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:34px; align-items:center; }
+    .register-art { min-height:300px; border-radius:20px; background:linear-gradient(145deg,#f3e6c9,#e6edda); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:25px; text-align:center; }
+    .register-art .dog { font-size:94px; line-height:1.2; }
+    .register-art p { max-width:240px; color:var(--green); font-weight:800; font-size:20px; margin:10px 0 0; }
+    .form-card { background:var(--paper); border:1px solid var(--line); border-radius:20px; padding:clamp(22px,3vw,34px); box-shadow:var(--shadow); }
+    .form-card h2 { margin-bottom:8px; }
+    .form-card p { color:var(--muted); margin:0 0 18px; }
+    .form-placeholder { background:#f5f3eb; border:1px dashed #c7cdbd; border-radius:14px; padding:22px; }
+    .form-placeholder strong { display:block; margin-bottom:8px; }
+    .form-placeholder ol { padding-left:22px; margin:8px 0 0; }
+    .form-placeholder li { margin:7px 0; }
+    .form-placeholder code { white-space:normal; overflow-wrap:anywhere; background:#e9eddd; padding:2px 5px; border-radius:4px; }
+    .privacy { font-size:12px; color:var(--muted); margin-top:15px !important; }
+    footer { background:#e9eddd; padding:26px 0; margin-top:10px; }
+    .footer-row { display:flex; align-items:center; justify-content:space-between; gap:20px; color:var(--muted); font-size:13px; }
+    .footer-row strong { color:var(--green); font-size:15px; }
+    @media (max-width:760px) {
+      .links { gap:12px; font-size:12px; }
+      .links a:nth-child(1), .links a:nth-child(2) { display:none; }
+      .brand { font-size:14px; }
+      .paw { width:38px; height:38px; font-size:22px; }
+      .hero { min-height:520px; background-position:57% center; }
+      .hero:before { content:""; position:absolute; inset:0; background:rgba(10,30,17,.2); }
+      .hero-inner { padding:56px 0; }
+      .facts { grid-template-columns:1fr; gap:0; padding:12px 0; }
+      .fact { display:flex; align-items:center; text-align:left; gap:14px; padding:12px 6px; }
+      .fact-icon { flex:0 0 52px; width:52px; height:52px; margin:0; }
+      .features { grid-template-columns:repeat(2,1fr); gap:12px; }
+      .register-grid { grid-template-columns:1fr; gap:18px; }
+      .register-art { min-height:170px; }
+      .register-art .dog { font-size:58px; }
+      .register-art p { font-size:17px; }
+      .footer-row { flex-direction:column; text-align:center; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .btn { transition:none; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><span class="paw" aria-hidden="true">🐾</span><span>Фестиваль<br>владельцев собак</span></a>
+    <nav class="links" aria-label="Основная навигация">
+      <a href="#about">О фестивале</a><a href="#program">Программа</a><a href="#registration">Регистрация</a><a href="#contacts">Контакты</a>
+    </nav>
+  </div>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="location">📍 Майкоп</div>
+        <h1>Фестиваль<br>владельцев <span>собак</span></h1>
+        <p class="lead">Объединяем людей и их четвероногих друзей!</p>
+        <p class="sublead">Знакомства, общение, игры, конкурсы, полезные знания и отличное настроение — для собак любых пород и их людей.</p>
+        <a class="btn" href="#registration">Зарегистрироваться <span aria-hidden="true">→</span></a>
+        <div class="note">Участие бесплатное</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap facts" id="about" aria-label="Информация о мероприятии">
+    <div class="fact"><div class="fact-icon">🗓️</div><div><h3>Дата проведения</h3><p>В 2027 году<br>Дата будет объявлена дополнительно</p></div></div>
+    <div class="fact"><div class="fact-icon">📍</div><div><h3>Место проведения</h3><p>Майкоп<br>Точная локация уточняется</p></div></div>
+    <div class="fact"><div class="fact-icon">💚</div><div><h3>Участие</h3><p>Бесплатно<br>Для всех желающих</p></div></div>
+  </section>
+
+  <section class="wrap section" id="program">
+    <div class="panel">
+      <h2>Что вас ждёт?</h2>
+      <p class="section-intro">Проведём день активно, дружелюбно и с заботой о наших питомцах.</p>
+      <div class="features">
+        <article class="feature"><div class="emoji" aria-hidden="true">🦮</div><h3>Кинологи</h3><p>Советы о воспитании, дрессировке и поведении собак.</p></article>
+        <article class="feature"><div class="emoji" aria-hidden="true">🏃</div><h3>Игры и конкурсы</h3><p>Полосы препятствий, активности и весёлые соревнования.</p></article>
+        <article class="feature"><div class="emoji" aria-hidden="true">🦴</div><h3>Полезные стенды</h3><p>Информационные материалы и лакомства для собак.</p></article>
+        <article class="feature"><div class="emoji" aria-hidden="true">🐕‍🦺</div><h3>Новые знакомства</h3><p>Общение и обмен опытом среди любителей собак.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="registration">
+    <div class="register-grid">
+      <div class="register-art"><div class="dog" aria-hidden="true">🐕 🐾</div><p>Приходите со своим питомцем — будем рады знакомству!</p></div>
+      <div class="form-card">
+        <h2>Регистрация на фестиваль</h2>
+        <p>Заполните форму, чтобы оставить заявку. Это займёт всего пару минут.</p>
+        <div class="form-placeholder">
+          <strong>Здесь будет ваша Google-форма</strong>
+          Чтобы заявки сохранялись в Google Таблице:
+          <ol>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeYuZGUDaaVlNV7aM1x1HM7s_lZ4hKAD8_6wa0z4wUwTHsU9g/viewform?embedded=true" width="640" height="1530" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+          </ol>
+        </div>
+        <p class="privacy">Важно: не собирайте лишние данные. До публикации согласия укажите данные организатора (оператора), цели обработки, перечень данных, действия с ними, срок действия согласия и способ его отзыва. Проверьте применимые требования законодательства о персональных данных.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="contacts">
+  <div class="wrap footer-row">
+    <strong>🐾 Фестиваль владельцев собак</strong>
+    <span>Майкоп · Участие бесплатное</span>
+    <span>Контакты организаторов будут добавлены позже</span>
+  </div>
+</footer>
+</body>
+</html>
